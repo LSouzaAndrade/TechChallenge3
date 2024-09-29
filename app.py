@@ -49,6 +49,11 @@ if st.button("Enviar respostas"):
     try:
         response = requests.post(url, json=request, timeout=5)
         response.raise_for_status()
+        resultado = response.json()
+        nota_estimada = resultado.get("prediction", "Chave não encontrada")
+        st.subheader("Nota prevista:")
+        st.markdown(f"<h2 style='font-size: 40px;'>{nota_estimada}</h2>",
+                    unsafe_allow_html=True)
     except requests.exceptions.Timeout:
         st.error("A requisição demorou demais e excedeu o tempo limite.")
     except requests.exceptions.RequestException as e:
