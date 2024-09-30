@@ -1,4 +1,3 @@
-from sklearn.linear_model import LinearRegression
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Dict
@@ -7,10 +6,10 @@ import joblib
 import os
 
 current_dir = os.path.dirname(__file__)
-model_path = os.path.join(current_dir, 'Models', 'model_lr_semnormalizar.pkl')
-
+model_path = os.path.join(current_dir, 'Models', 'model_svr.pkl')
+scaler_path = os.path.join(current_dir, 'Models', 'scaler.pkl')
 loaded_model = joblib.load(model_path)
-
+loaded_scaler = joblib.load(scaler_path)
 app = FastAPI()
 
 class StudentData(BaseModel):
@@ -43,5 +42,6 @@ async def model_predict(data: StudentData) -> Dict[str, int]:
        'Tutoring_Sessions', 'Family_Income', 'Teacher_Quality', 'School_Type',
        'Peer_Influence', 'Physical_Activity', 'Learning_Disabilities',
        'Parental_Education_Level', 'Distance_from_Home', 'Gender']]
-    result = loaded_model.predict(df)
+    df_scaled = loaded_scaler.transform(df.values)
+    result = loaded_model.predict(df_scaled)
     return {"prediction": round(result[0], 0)}
