@@ -60,6 +60,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 ```
+## ⚙️ Execução
 Com o ambiente virtual ativo, e dependências necessárias instaladas, é necessario que sejam abertos em terminais distintos os servidores para a API do modelo, e para a aplicação.
 
 ### Terminal 1 - API do modelo
