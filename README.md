@@ -1,6 +1,6 @@
 # Tech Challenge - Fase 3 - Grupo 12 - MLET
 
-# App: [tc3.deployapp.online](tc3.deployapp.online)
+# App: [tc3.deployapp.online](https://tc3.deployapp.online/)
 
 ## 🚀 Sobre o projeto 
 
