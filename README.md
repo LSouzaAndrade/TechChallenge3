@@ -19,11 +19,11 @@ A estrutura de pastas e arquivos do projeto se encontra disposta da seguinte man
 
 ```bash
 ├── Datasets                            # Diretório de datasets e derivados
-|   ├── StudentPerformanceFactors.csv   # Conjunto de dados exportado do Kaggle
-|   └── StudentPerformanceFactors.db    # Conjunto de dados salvo em arquivo SQLite
+    ├── StudentPerformanceFactors.csv   # Conjunto de dados exportado do Kaggle
+    └── StudentPerformanceFactors.db    # Conjunto de dados salvo em arquivo SQLite
 ├── Models                              # Diretório de modelos e derivados
-|   ├── model_svr.pkl                   # Modelo SVR serializado
-|   └── scaler.db                       # MinMaxScaler serializado
+    ├── model_svr.pkl                   # Modelo SVR serializado
+    └── scaler.db                       # MinMaxScaler serializado
 ├── app.py                              # Aplicação Streamlit
 ├── LICENSE.txt                         # Licença MIT vigente sob este repositório
 ├── model_api.py                        # API para requests ao modelo treinado
