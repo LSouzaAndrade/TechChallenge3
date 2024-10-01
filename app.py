@@ -1,6 +1,8 @@
 import streamlit as st
 import requests
 
+st.set_page_config(page_title="Formulário de dados do estudante")
+
 st.title("Formulário de dados do estudante")
 
 st.subheader("Sobre você:")
