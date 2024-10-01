@@ -1,40 +1,79 @@
 # Tech Challenge - Fase 3 - Grupo 12 - MLET
 
+# App: [tc3.deployapp.online](tc3.deployapp.online)
+
 ## 🚀 Sobre o projeto 
 
-### Escopo
-Este projeto visa a criação de um modelo de Machine Learning que coleta dados e os armazena em um banco de dados convencional, SQLite. O objetivo é desenvolver um modelo que utilize essa base de dados para treinamento e que possa ser integrado a uma aplicação simples.
-
-
 ### Objetivos da Fase 3
-- **Coleta de Dados**: Os dados serão obtidos do Kaggle e preparados para uso no formato CSV.
-- **Definição do Problema**: O grupo irá descrever o problema a ser resolvido com suas próprias palavras, explicando o tipo de modelo que será utilizado.
-- **Análise Exploratória de Dados**: Durante a construção do modelo, será realizada uma análise exploratória que demonstrará todos os pontos relevantes que direcionaram a escolha do modelo.
-- **Testes de Modelos**: Serão apresentados testes realizados, com explicações sobre a escolha do modelo, os parâmetros utilizados e as abordagens para evitar underfitting e overfitting.
+- **Coleta de Dados**: O dataset utilizado neste projeto pode ser encontrado na seguinte [publicação na plataforma Kaggle](https://www.kaggle.com/datasets/lainguyn123/student-performance-factors);
+
+- **Definição do Problema**: Neste dataset estão contidos os dados de alunos, de seus ambientes de estudo e de seus respectivos desempenhos em um exame. (Os dados deste dataset foram gerados sinteticamente para fins de análise exploratória de dados, conforme informado pelo autor na [publicação anteriormente mencionada](https://www.kaggle.com/datasets/lainguyn123/student-performance-factors)). A partir desses dados, o modelo neste projeto produzido visa decompor quais são as contribuições dos hábitos de rotina e do ambiente de convívio no desempenho acadêmico de alunos;
+
+- **Análise Exploratória de Dados**: A análise exploratória dos dados do dataset podem ser encontradas no arquivo [notebook.ipynb](notebook.ipynb), a explicação dos dados abordados nesta EDA pode ser acessada no seguinte [link para o vídeo](xpto.com); 
+
 - **Modelo Produtivo**: O modelo será colocado em produção utilizando ferramentas como Streamlit, criando uma aplicação simples acessível pelo navegador.
 
-## 📋 Pré-requisitos
-```
-- Interpretador Python para execução dos códigos;
-- Biblioteca Pandas para análise exploratória de dados, limpeza e tratamento de dados;
-- Biblioteca Matplotlib para gerar gráficos;
-- Biblioteca Seaborn para visualização de dados;
-- Biblioteca Numpy para cálculos numéricos;
-- Biblioteca Yellowbrick para diagnóstico e visualização de modelos de Machine Learning;
-- Biblioteca Lightgbm para construir um conjunto de modelos, árvores de decisão;
-- Biblioteca Shap para interpretabilidade do modelo;
-- Biblioteca Lime para interpretabilidade do modelo;
-- Biblioteca Imblearn para lidar com classificação com classes desbalanceadas;
-- Biblioteca Scikit-learn para análise preditiva de dados
+## 📝 Arquitetura do Projeto
 
+A estrutura de pastas e arquivos do projeto se encontra disposta da seguinte maneira:
+
+```bash
+├── Datasets                            # Diretório de datasets e derivados
+|   ├── StudentPerformanceFactors.csv   # Conjunto de dados exportado do Kaggle
+|   └── StudentPerformanceFactors.db    # Conjunto de dados salvo em arquivo SQLite
+├── Models                              # Diretório de modelos e derivados
+|   ├── model_svr.pkl                   # Modelo SVR serializado
+|   └── scaler.db                       # MinMaxScaler serializado
+├── app.py                              # Aplicação Streamlit
+├── LICENSE.txt                         # Licença MIT vigente sob este repositório
+├── model_api.py                        # API para requests ao modelo treinado
+├── notebook.ipynb                      # Notebook de EDA
+├── README.md                           # Documentação do projeto
+└── requirements.txt                    # Dependências externas utilizadas
 ```
+
+## 📋 Pré-requisitos
+Para execução do aplicativo e utilização do modelo gerado neste projeto, se fazem necessárias as seguintes dependências:
+- FastAPI;
+- Joblib;
+- Pandas;
+- Scikit-learn;
+- Streamlit;
+- Uvicorn.
 
 ## 🔧 Instalação
-```
-- No notebook execute a célula 
-    * Instalação de dependências externas necessárias
+Todas dependências necessárias para reprodução do projeto contido neste repositório foram testadas com a versão 3.12.5 do Python. \
+É recomendado que sejam utilizadas as versões de dependências incluídas no arquivo [requirements.txt](requirements.txt), a fim de evitar erros originados por incompatibilidade de versões.\
+Para isso, navegue até o diretório do projeto, e no terminal execute a seguinte sequência de comandos:
+
+```bash
+# Crie um ambiente virtual para instalar as dependências:
+python3 -m venv .venv
+
+# Para ativar o ambiente virtual, caso esteja usando Linux ou macOS, execute:
+source .venv/bin/activate
+
+# Para ativar o ambiente virtual, caso esteja usando Windows, execute:
+.venv\Scripts\activate
+
+# Instale as dependências do projeto:
+pip install -r requirements.txt
 
 ```
+Com o ambiente virtual ativo, e dependências necessárias instaladas, é necessario que sejam abertos em terminais distintos os servidores para a API do modelo, e para a aplicação.
+
+### Terminal 1 - API do modelo
+```bash
+# Inicie o servidor Uvicorn para execução do FastAPI:
+uvicorn model_api:app
+```
+### Terminal 2 - Aplicação de consumo do modelo
+```bash
+# Inicie o servidor Streamlit para execução da aplicação:
+streamlit run app.py
+```
+Após ambos servidores estarem em execução simultaneamente, é possível realizar requisições para API do modelo por meio da aplicação. \
+No caso do modelo desenvolvido neste projeto, a aplicação é um formulário de dados estudantis para predição do desempenho esperado do aluno em um exame hipotético.
 
 ## ✒️ Autores
 
