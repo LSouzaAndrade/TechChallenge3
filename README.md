@@ -11,7 +11,7 @@
 
 - **Análise Exploratória de Dados**: A análise exploratória dos dados do dataset podem ser encontradas no arquivo [notebook.ipynb](notebook.ipynb), a explicação dos dados abordados nesta EDA pode ser acessada no seguinte [link para o vídeo](xpto.com); 
 
-- **Modelo Produtivo**: O modelo será colocado em produção utilizando ferramentas como Streamlit, criando uma aplicação simples acessível pelo navegador.
+- **Modelo Produtivo**: O modelo pode ser consumido através da aplicação de forma local através das instruções apresentadas abaixo, ou online por meio do link presente no início desta documentação.
 
 ## 📝 Arquitetura do Projeto
 
