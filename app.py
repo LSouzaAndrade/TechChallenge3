@@ -45,10 +45,8 @@ if st.button("Enviar respostas"):
         if request[key] in assortment_dict.keys():
             request[key] = assortment_dict[request[key]]
 
-    url = "http://127.0.0.1:8000/"
-    response = requests.post(url, json=request)
-
     try:
+        url = "http://127.0.0.1:8000/"
         response = requests.post(url, json=request, timeout=5)
         response.raise_for_status()
         resultado = response.json()
