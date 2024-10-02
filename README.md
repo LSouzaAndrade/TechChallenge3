@@ -9,7 +9,7 @@
 
 - **Definição do Problema**: Neste dataset estão contidos os dados de alunos, de seus ambientes de estudo e de seus respectivos desempenhos em um exame. (Os dados deste dataset foram gerados sinteticamente para fins de análise exploratória de dados, conforme informado pelo autor na [publicação anteriormente mencionada](https://www.kaggle.com/datasets/lainguyn123/student-performance-factors)). A partir desses dados, o modelo neste projeto produzido visa decompor quais são as contribuições dos hábitos de rotina e do ambiente de convívio no desempenho acadêmico de alunos;
 
-- **Análise Exploratória de Dados**: A análise exploratória dos dados do dataset podem ser encontradas no arquivo [notebook.ipynb](notebook.ipynb), a explicação dos dados abordados nesta EDA pode ser acessada no seguinte [link para o vídeo](xpto.com); 
+- **Análise Exploratória de Dados**: A análise exploratória dos dados do dataset podem ser encontradas no arquivo [notebook.ipynb](notebook.ipynb), a explicação dos dados abordados nesta EDA pode ser acessada no seguinte [link para o vídeo](https://youtu.be/THUN6R4rpHg); 
 
 - **Modelo Produtivo**: O modelo pode ser consumido através da aplicação de forma local através das instruções apresentadas abaixo, ou online por meio do link presente no início desta documentação.
 
