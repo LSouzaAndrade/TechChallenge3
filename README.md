@@ -1,7 +1,5 @@
 # Tech Challenge - Fase 3 - Grupo 12 - MLET
 
-# App: [tc3.deployapp.online](https://tc3.deployapp.online/)
-
 ## 🚀 Sobre o projeto 
 
 ### Objetivos da Fase 3
@@ -11,7 +9,7 @@
 
 - **Análise Exploratória de Dados**: A análise exploratória dos dados do dataset podem ser encontradas no arquivo [notebook.ipynb](notebook.ipynb), a explicação dos dados abordados nesta EDA pode ser acessada no seguinte [link para o vídeo](https://youtu.be/THUN6R4rpHg); 
 
-- **Modelo Produtivo**: O modelo pode ser consumido através da aplicação de forma local através das instruções apresentadas abaixo, ou online por meio do link presente no início desta documentação.
+- **Modelo Produtivo**: O modelo pode ser consumido através da aplicação de forma local através das instruções apresentadas abaixo.
 
 ## 📝 Arquitetura do Projeto
 
@@ -66,11 +64,13 @@ Com o ambiente virtual ativo, e dependências necessárias instaladas, é necess
 ### Terminal 1 - API do modelo
 ```bash
 # Inicie o servidor Uvicorn para execução do FastAPI:
+# (Por padrão, o Uvicorn irá rodar na porta 8000)
 uvicorn model_api:app
 ```
 ### Terminal 2 - Aplicação de consumo do modelo
 ```bash
 # Inicie o servidor Streamlit para execução da aplicação:
+# (Por padrão, o Streamlit irá rodar na porta 8501)
 streamlit run app.py
 ```
 Após ambos servidores estarem em execução simultaneamente, é possível realizar requisições para API do modelo por meio da aplicação. \
